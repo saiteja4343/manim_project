@@ -1,0 +1,53 @@
+from manim import *
+
+
+class MaxPool(Scene):
+    def construct(self):
+        input = MathTable(
+            [[0, 1, 2],
+             [3, 4, 5],
+             [6, 7, 8]],
+            include_outer_lines=True, add_background_rectangles_to_entries=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input.set_fill_by_value({1: RED, 2: BLUE})
+        maxpool = VGroup()
+
+        box = Rectangle(  # create a box
+            height=2, width=3,
+        )
+        text = Tex("\\text {2 X 2 Max Pooling}").scale(0.5).move_to(box.get_center())  # create text
+        maxpool.add(box, text).next_to(input, np.array((2.5, 0.0, 0.0)))
+
+        output = MathTable(
+            [[4, 5],
+             [7, 8]],
+            include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
+
+        man = Tex("Max Pooling").move_to(np.array((0.0, 2.5, 0.0)))
+
+        rectangle = Rectangle(height=6, width=10).move_to(np.array((0.0, 0.0, 0.0)))
+        self.play(FadeIn(rectangle), run_time=1)
+        self.wait()
+
+        self.play(FadeIn(man), run_time=1)
+        self.wait()
+        self.play(man.animate.set_color(BLUE_B))
+        self.wait(1)
+
+        self.play(FadeIn(input), run_time=1)
+        self.wait()
+
+        self.play(FadeIn(maxpool), run_time=1)
+        self.wait()
+
+        self.play(FadeIn(output), run_time=1)
+        self.wait()
+
+        table_names = ["Input", "Output"]
+
+        in_text = Tex(table_names[0]).next_to(input, np.array((0.0, -1.0, 0.0))).scale(0.5)
+        self.play(FadeIn(in_text), run_time=1)
+        self.wait()
+
+        out_text = Tex(table_names[1]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.5)
+        self.play(FadeIn(out_text), run_time=1)
+        self.wait()

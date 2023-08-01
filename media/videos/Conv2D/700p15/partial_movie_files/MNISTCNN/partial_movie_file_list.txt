@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/122980424_1689806254_2556867562.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_3397463857_2326066213.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_2799632833_1979258301.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_1804042621_1263043544.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_169295704_669421452.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_1804042621_2670252041.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_1349065657_4043297267.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/700p15/partial_movie_files/MNISTCNN/1939856100_1740919036_1431165289.mp4'
