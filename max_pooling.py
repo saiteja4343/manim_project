@@ -36,7 +36,13 @@ class MaxPool(Scene):
         self.play(man.animate.set_color(BLUE_B))
         self.wait(1)
 
+        table_names = ["Input", "Output"]
+
         self.play(FadeIn(input), run_time=1)
+        self.wait()
+
+        in_text = Tex(table_names[0]).next_to(input, np.array((0.0, -1.0, 0.0))).scale(0.5)
+        self.play(FadeIn(in_text), run_time=1)
         self.wait()
 
         self.play(FadeIn(maxpool), run_time=1)
@@ -45,12 +51,8 @@ class MaxPool(Scene):
         self.play(FadeIn(output), run_time=1)
         self.wait()
 
-        table_names = ["Input", "Output"]
-
-        in_text = Tex(table_names[0]).next_to(input, np.array((0.0, -1.0, 0.0))).scale(0.5)
-        self.play(FadeIn(in_text), run_time=1)
-        self.wait()
-
         out_text = Tex(table_names[1]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.5)
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
+
+

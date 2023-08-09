@@ -36,33 +36,33 @@ class MNISTCNN(ThreeDScene):
         # Create text labels and brackets for each layer
         layer_names = ["Input", "Feature Maps", "Pooled Maps", "Output"]
 
-        in_text = Tex(layer_names[0]).next_to(np.array((-1.5, -1.0, 0.0)), DOWN)
-        in_text.scale(0.23)  # Decrease the font size by scaling
+        in_text = Tex(layer_names[0]).next_to(np.array((-3.5, -2.25, 0.0)), DOWN)
+        in_text.scale(0.35)  # Decrease the font size by scaling
         self.play(FadeIn(in_text), run_time=1)
         self.wait()
 
-        conv_text = Tex(layer_names[1]).next_to(np.array((-0.25, -1.0, 0.0)), DOWN)
-        conv_text.scale(0.23)  # Decrease the font size by scaling
+        conv_text = Tex(layer_names[1]).next_to(np.array((-2.0, -2.25, 0.0)), DOWN)
+        conv_text.scale(0.30)  # Decrease the font size by scaling
         self.play(FadeIn(conv_text), run_time=1)
         self.wait()
 
-        pool_text = Tex(layer_names[2]).next_to(np.array((0.25, -1.0, 0.0)), DOWN)
-        pool_text.scale(0.23)  # Decrease the font size by scaling
+        pool_text = Tex(layer_names[2]).next_to(np.array((0.25, -2.25, 0.0)), DOWN)
+        pool_text.scale(0.30)  # Decrease the font size by scaling
         self.play(FadeIn(pool_text), run_time=1)
         self.wait()
 
-        conv_text = Tex(layer_names[1]).next_to(np.array((0.75, -1.0, 0.0)), DOWN)
-        conv_text.scale(0.23)  # Decrease the font size by scaling
+        conv_text = Tex(layer_names[1]).next_to(np.array((1.8, -2.25, 0.0)), DOWN)
+        conv_text.scale(0.30)  # Decrease the font size by scaling
         self.play(FadeIn(conv_text), run_time=1)
         self.wait()
 
-        pool_text = Tex(layer_names[2]).next_to(np.array((1.35, -1.0, 0.0)), DOWN)
-        pool_text.scale(0.23)  # Decrease the font size by scaling
+        pool_text = Tex(layer_names[2]).next_to(np.array((3.2, -2.25, 0.0)), DOWN)
+        pool_text.scale(0.30)  # Decrease the font size by scaling
         self.play(FadeIn(pool_text), run_time=1)
         self.wait()
 
-        feed_text = Tex(layer_names[3]).next_to(np.array((2.4, -1.0, 0.0)), DOWN)
-        feed_text.scale(0.23)  # Decrease the font size by scaling
+        feed_text = Tex(layer_names[3]).next_to(np.array((4.3, -2.25, 0.0)), DOWN)
+        feed_text.scale(0.35)  # Decrease the font size by scaling
         self.play(FadeIn(feed_text), run_time=1)
         self.wait()
 
@@ -71,7 +71,7 @@ class MNISTCNN(ThreeDScene):
         # Make a forward pass animation
         forward_pass = nn.make_forward_pass_animation()
         # Play animation
-        self.play(forward_pass, run_time=50)
+        self.play(forward_pass, run_time=100)
         self.wait(2)
 
 
