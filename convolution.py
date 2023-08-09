@@ -1,13 +1,16 @@
 from manim import *
 
-class Draw(Scene):
+class Conv(Scene):
     def construct(self):
         input = MathTable(
             [[0, 1, 2],
              [3, 4, 5],
              [6, 7, 8]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
-
+        input.add_highlighted_cell((1, 1), color=BLUE_E)
+        input.add_highlighted_cell((1, 2), color=BLUE_E)
+        input.add_highlighted_cell((2, 1), color=BLUE_E)
+        input.add_highlighted_cell((2, 2), color=BLUE_E)
         mul = Tex("*").next_to(input, np.array((1.5, 0.0, 0.0))).scale(0.5)
 
         kernel = MathTable(
@@ -15,13 +18,18 @@ class Draw(Scene):
              [2, 3]],
             include_outer_lines=True).next_to(mul, np.array((0.25, 0.0, 0.0))).scale(0.5)
 
+        kernel.add_highlighted_cell((1, 1), color=BLUE_E)
+        kernel.add_highlighted_cell((1, 2), color=BLUE_E)
+        kernel.add_highlighted_cell((2, 1), color=BLUE_E)
+        kernel.add_highlighted_cell((2, 2), color=BLUE_E)
+
         equal = Tex("=").next_to(kernel, np.array((1.5, 0.0, 0.0))).scale(0.5)
 
         output = MathTable(
             [[19, 25],
              [37, 43]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
-
+        output.add_highlighted_cell((1, 1), color=BLUE_E)
         man = Tex("Convolution").move_to(np.array((0.0, 2.5, 0.0)))
 
         rectangle = Rectangle(height=6, width=10).move_to(np.array((0.0, 0.0, 0.0)))

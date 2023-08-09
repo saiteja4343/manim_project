@@ -7,5 +7,5 @@ file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1
 file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_1804042621_1706149667.mp4'
 file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_3398178542_3727529917.mp4'
 file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_1804042621_2848159462.mp4'
-file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_2890293984_698298782.mp4'
+file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_2378723686_698298782.mp4'
 file 'file:C:/Users/bt717605/PycharmProjects/manim_project/media/videos/Conv2D/1000p60/partial_movie_files/MNISTCNN/3317411362_1740919036_2273532861.mp4'
