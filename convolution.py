@@ -11,7 +11,7 @@ class Conv(Scene):
         input.add_highlighted_cell((1, 2), color=BLUE_E)
         input.add_highlighted_cell((2, 1), color=BLUE_E)
         input.add_highlighted_cell((2, 2), color=BLUE_E)
-        mul = Tex("*").next_to(input, np.array((1.5, 0.0, 0.0))).scale(0.75)
+        mul = Tex("*").next_to(input, np.array((1.5, 0.0, 0.0)))
 
         kernel = MathTable(
             [[0, 1],
@@ -23,14 +23,14 @@ class Conv(Scene):
         kernel.add_highlighted_cell((2, 1), color=BLUE_E)
         kernel.add_highlighted_cell((2, 2), color=BLUE_E)
 
-        equal = Tex("=").next_to(kernel, np.array((1.5, 0.0, 0.0))).scale(0.75)
+        equal = Tex("=").next_to(kernel, np.array((1.5, 0.0, 0.0)))
 
         output = MathTable(
             [[19, 25],
              [37, 43]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output.add_highlighted_cell((1, 1), color=BLUE_E)
-        man = Tex("Convolution").move_to(np.array((0.0, 2.5, 0.0)))
+        man = Tex("Convolution").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
 
         rectangle = Rectangle(height=6, width=10).move_to(np.array((0.0, 0.0, 0.0)))
         self.play(FadeIn(rectangle), run_time=1)
@@ -45,7 +45,7 @@ class Conv(Scene):
         self.play(FadeIn(input), run_time=1)
         self.wait()
 
-        in_text = Tex(table_names[0]).next_to(input, np.array((0.0, -1.0, 0.0))).scale(0.5)
+        in_text = Tex(table_names[0]).next_to(input, np.array((0.0, -1.0, 0.0))).scale(0.75)
         self.play(FadeIn(in_text), run_time=1)
         self.wait()
 
@@ -55,7 +55,7 @@ class Conv(Scene):
         self.play(FadeIn(kernel), run_time=1)
         self.wait()
 
-        k_text = Tex(table_names[1]).next_to(kernel, np.array((0.0, -2.0, 0.0))).scale(0.5)
+        k_text = Tex(table_names[1]).next_to(kernel, np.array((0.0, -2.0, 0.0))).scale(0.75)
         self.play(FadeIn(k_text), run_time=1)
         self.wait()
 
@@ -65,7 +65,7 @@ class Conv(Scene):
         self.play(FadeIn(output), run_time=1)
         self.wait()
 
-        out_text = Tex(table_names[2]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.5)
+        out_text = Tex(table_names[2]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.75)
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
 
