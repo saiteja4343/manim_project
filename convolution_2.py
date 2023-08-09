@@ -3,9 +3,9 @@ from manim import *
 class Conv(Scene):
     def construct(self):
         input = MathTable(
-            [[0, 1, 2],
-             [3, 4, 5],
-             [6, 7, 8]],
+            [[1, 2, 0],
+             [4, 5, 1],
+             [7, 8, 2]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input.add_highlighted_cell((1, 1), color=BLUE_E)
         input.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -26,8 +26,8 @@ class Conv(Scene):
         equal = Tex("=").next_to(kernel, np.array((1.5, 0.0, 0.0)))
 
         output = MathTable(
-            [[19, 25],
-             [37, 43]],
+            [[25, 00],
+             [43, 00]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output.add_highlighted_cell((1, 1), color=BLUE_E)
         man = Tex("Convolution").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
@@ -40,7 +40,7 @@ class Conv(Scene):
         self.wait()
         self.play(man.animate.set_color(BLUE_B))
         self.wait(1)
-        table_names = ["Input", "Kernel", "Result"]
+        table_names = ["Input", "Kernel", "Output"]
 
         self.play(FadeIn(input), run_time=1)
         self.wait()
@@ -68,31 +68,4 @@ class Conv(Scene):
         out_text = Tex(table_names[2]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.75)
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
-
-        self.wait(3)
-
-        input_2 = MathTable(
-            [[1, 2, 0],
-             [4, 5, 1],
-             [7, 8, 2]],
-            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
-        input_2.add_highlighted_cell((1, 1), color=BLUE_E)
-        input_2.add_highlighted_cell((1, 2), color=BLUE_E)
-        input_2.add_highlighted_cell((2, 1), color=BLUE_E)
-        input_2.add_highlighted_cell((2, 2), color=BLUE_E)
-
-        output_2 = MathTable(
-            [[25, 13],
-             [43, 17]],
-            include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
-        output_2.add_highlighted_cell((1, 1), color=BLUE_E)
-
-        self.play(Transform(input, input_2), run_time=1)
-        self.wait()
-
-        self.play(Transform(output, output_2), run_time=1)
-        self.wait()
-
-        self.wait(3)
-
 

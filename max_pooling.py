@@ -36,7 +36,7 @@ class MaxPool(Scene):
         self.play(man.animate.set_color(BLUE_B))
         self.wait(1)
 
-        table_names = ["Input", "Output"]
+        table_names = ["Input", "Result"]
 
         self.play(FadeIn(input), run_time=1)
         self.wait()
