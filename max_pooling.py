@@ -11,7 +11,7 @@ class MaxPool(Scene):
         input.add_highlighted_cell((1,1), color=BLUE_E)
         input.add_highlighted_cell((1, 2), color=BLUE_E)
         input.add_highlighted_cell((2, 1), color=BLUE_E)
-        input.add_highlighted_cell((2, 2), color=BLUE_E)
+        input.add_highlighted_cell((2, 2), color=GREEN_E)
         maxpool = VGroup()
 
         box = Rectangle(  # create a box
@@ -24,7 +24,7 @@ class MaxPool(Scene):
             [[4, 5],
              [7, 8]],
             include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
-        output.add_highlighted_cell((1, 1), color=BLUE_E)
+        output.add_highlighted_cell((1, 1), color=GREEN_E)
         man = Tex("Max Pooling").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
 
         rectangle = Rectangle(height=6, width=10).move_to(np.array((0.0, 0.0, 0.0)))

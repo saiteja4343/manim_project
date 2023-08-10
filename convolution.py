@@ -6,7 +6,7 @@ class Conv(Scene):
             [[0, 1, 2],
              [3, 4, 5],
              [6, 7, 8]],
-            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
         input.add_highlighted_cell((1, 1), color=BLUE_E)
         input.add_highlighted_cell((1, 2), color=BLUE_E)
         input.add_highlighted_cell((2, 1), color=BLUE_E)
@@ -69,13 +69,24 @@ class Conv(Scene):
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
 
-        self.wait(3)
+        cal_text = Tex("(0*0)+(1*1)+(3*2)+(4*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        self.play(FadeIn(cal_text), run_time=1)
+        self.wait()
+
+        res_text = Tex("19").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        self.play(FadeIn(res_text), run_time=1)
+        self.wait()
+
+        self.play(res_text.animate.set_color(BLUE_D))
+        self.wait(0.5)
+
+        self.wait(1.5)
 
         input_2 = MathTable(
             [[1, 2, 0],
              [4, 5, 1],
              [7, 8, 2]],
-            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
         input_2.add_highlighted_cell((1, 1), color=BLUE_E)
         input_2.add_highlighted_cell((1, 2), color=BLUE_E)
         input_2.add_highlighted_cell((2, 1), color=BLUE_E)
@@ -92,6 +103,17 @@ class Conv(Scene):
 
         self.play(Transform(output, output_2), run_time=1)
         self.wait()
+
+        cal_text2 = Tex("(1*0)+(2*1)+(4*2)+(5*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        self.play(Transform(cal_text, cal_text2), run_time=1)
+        self.wait()
+
+        res_text2 = Tex("25").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        self.play(Transform(res_text, res_text2), run_time=1)
+        self.wait()
+
+        self.play(res_text2.animate.set_color(BLUE_D))
+        self.wait(0.5)
 
         self.wait(3)
 
