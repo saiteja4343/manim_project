@@ -83,5 +83,5 @@ class MNISTCNN(ThreeDScene):
         # Make a forward pass animation
         forward_pass = nn.make_forward_pass_animation()
         # Play animation
-        self.play(forward_pass, run_time=100)
+        self.play(forward_pass, run_time=30)
         self.wait(2)

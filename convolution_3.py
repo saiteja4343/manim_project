@@ -14,8 +14,8 @@ class Conv(Scene):
         mul = Tex("*").next_to(input, np.array((1.5, 0.0, 0.0)))
 
         kernel = MathTable(
-            [[1, 0],
-             [1, 1]],
+            [[2, 1],
+             [0, 1]],
             include_outer_lines=True).next_to(mul, np.array((0.25, 0.0, 0.0))).scale(0.5)
 
         kernel.add_highlighted_cell((1, 1), color=BLUE_E)
@@ -26,8 +26,8 @@ class Conv(Scene):
         equal = Tex("=").next_to(kernel, np.array((1.5, 0.0, 0.0)))
 
         output = MathTable(
-            [[7, 10],
-             [16, 19]],
+            [[5, 9],
+             [17, 21]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output.add_highlighted_cell((1, 1), color=BLUE_E)
         man = Tex("Convolution").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
@@ -69,11 +69,11 @@ class Conv(Scene):
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
 
-        cal_text = Tex("(0*1)+(1*0)+(3*1)+(4*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        cal_text = Tex("(0*2)+(1*1)+(3*0)+(4*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(FadeIn(cal_text), run_time=1)
         self.wait()
 
-        res_text = Tex("7").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        res_text = Tex("5").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
         self.play(FadeIn(res_text), run_time=1)
         self.wait()
 
@@ -93,8 +93,8 @@ class Conv(Scene):
         input_2.add_highlighted_cell((2, 2), color=BLUE_E)
 
         output_2 = MathTable(
-            [[10, 8],
-             [19, 15]],
+            [[9, 5],
+             [21, 13]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output_2.add_highlighted_cell((1, 1), color=BLUE_E)
 
@@ -104,11 +104,11 @@ class Conv(Scene):
         self.play(Transform(output, output_2), run_time=1)
         self.wait()
 
-        cal_text2 = Tex("(1*1)+(2*0)+(4*1)+(5*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        cal_text2 = Tex("(1*2)+(2*1)+(4*0)+(5*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(Transform(cal_text, cal_text2), run_time=1)
         self.wait()
 
-        res_text2 = Tex("10").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        res_text2 = Tex("9").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
         self.play(Transform(res_text, res_text2), run_time=1)
         self.wait()
 

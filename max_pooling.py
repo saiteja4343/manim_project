@@ -11,7 +11,8 @@ class MaxPool(Scene):
         input.add_highlighted_cell((1,1), color=BLUE_E)
         input.add_highlighted_cell((1, 2), color=BLUE_E)
         input.add_highlighted_cell((2, 1), color=BLUE_E)
-        input.add_highlighted_cell((2, 2), color=GREEN_E)
+        input.add_highlighted_cell((2, 2), color=BLUE_E)
+
         maxpool = VGroup()
 
         box = Rectangle(  # create a box
@@ -24,7 +25,6 @@ class MaxPool(Scene):
             [[4, 5],
              [7, 8]],
             include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
-        output.add_highlighted_cell((1, 1), color=GREEN_E)
         man = Tex("Max Pooling").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
 
         rectangle = Rectangle(height=6, width=10).move_to(np.array((0.0, 0.0, 0.0)))
@@ -50,9 +50,26 @@ class MaxPool(Scene):
 
         self.play(FadeIn(output), run_time=1)
         self.wait()
-
         out_text = Tex(table_names[1]).next_to(output, np.array((0.0, -1.75, 0.0))).scale(0.75)
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
+
+        self.play(FadeOut(input), run_time=0.1)
+        input = MathTable(
+            [[0, 1, 2],
+             [3, 4, 5],
+             [6, 7, 8]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input.add_highlighted_cell((1, 1), color=BLUE_E)
+        input.add_highlighted_cell((1, 2), color=BLUE_E)
+        input.add_highlighted_cell((2, 1), color=BLUE_E)
+        input.add_highlighted_cell((2, 2), color=GREEN_E)
+
+        self.play(FadeIn(input), run_time=0.1)
+        self.wait()
+        self.play(FadeIn(output.add_highlighted_cell((1, 1), color=GREEN_E)), run_time=1)
+        self.wait()
+
+
 
 
