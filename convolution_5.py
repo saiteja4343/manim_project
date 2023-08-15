@@ -98,23 +98,54 @@ class Conv(Scene):
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output_2.add_highlighted_cell((1, 1), color=BLUE_E)
 
-        self.play(Transform(input, input_2), run_time=1)
+        self.play(ReplacementTransform(input, input_2), run_time=1)
         self.wait()
 
-        self.play(Transform(output, output_2), run_time=1)
+        self.play(ReplacementTransform(output, output_2), run_time=1)
         self.wait()
 
         cal_text2 = Tex("(1*2)+(2*3)+(4*1)+(5*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
-        self.play(Transform(cal_text, cal_text2), run_time=1)
+        self.play(ReplacementTransform(cal_text, cal_text2), run_time=1)
         self.wait()
 
         res_text2 = Tex("17").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
-        self.play(Transform(res_text, res_text2), run_time=1)
+        self.play(ReplacementTransform(res_text, res_text2), run_time=0.5)
         self.wait()
 
-        self.play(res_text2.animate.set_color(BLUE_D))
+        self.play(res_text2.animate.set_color(BLUE_D), run_time=0.3)
         self.wait(0.5)
 
-        self.wait(3)
+        input_3 = MathTable(
+            [[0, 1, 2],
+             [3, 4, 5],
+             [6, 7, 8]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
+        input_3.add_highlighted_cell((1, 1), color=BLUE_E)
+        input_3.add_highlighted_cell((1, 2), color=BLUE_E)
+        input_3.add_highlighted_cell((2, 1), color=BLUE_E)
+        input_3.add_highlighted_cell((2, 2), color=BLUE_E)
+
+        output_3 = MathTable(
+            [[10, 17],
+             [31, 38]],
+            include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
+        output_3.add_highlighted_cell((1, 1), color=BLUE_E)
+
+        self.play(ReplacementTransform(input_2, input_3), run_time=1, )
+        self.wait()
+
+        self.play(ReplacementTransform(output_2, output_3), run_time=1)
+        self.wait()
+        cal_text3 = Tex("(0*2)+(1*3)+(3*1)+(4*1) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        self.play(ReplacementTransform(cal_text2, cal_text3), run_time=1)
+        self.wait()
+
+        res_text3 = Tex("10").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        self.play(ReplacementTransform(res_text2, res_text3), run_time=0.5)
+        self.wait()
+
+        self.play(res_text3.animate.set_color(BLUE_D), run_time=0.3)
+        self.wait(1)
+
 
 
