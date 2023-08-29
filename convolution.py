@@ -147,6 +147,38 @@ class Conv(Scene):
         self.play(res_text3.animate.set_color(BLUE_D), run_time=0.3)
         self.wait(1)
 
+        input_4 = MathTable(
+            [[0, 1, 2],
+             [3, 4, 5],
+             [6, 7, 8]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
+        input_4.add_highlighted_cell((1, 1), color=BLUE_E)
+        input_4.add_highlighted_cell((1, 2), color=BLUE_E)
+        input_4.add_highlighted_cell((2, 1), color=BLUE_E)
+        input_4.add_highlighted_cell((2, 2), color=BLUE_E)
+
+        output_4 = MathTable(
+            [[19, 25],
+             [37, 43]],
+            include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
+        output_4.add_highlighted_cell((1, 1), color=BLUE_E)
+
+        self.play(ReplacementTransform(input_3, input_4), run_time=1, )
+        self.wait()
+
+        self.play(ReplacementTransform(output_3, output_4), run_time=1)
+        self.wait()
+        cal_text4 = Tex("(0*0)+(1*1)+(3*2)+(4*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        self.play(ReplacementTransform(cal_text3, cal_text4), run_time=1)
+        self.wait()
+
+        res_text4 = Tex("19").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        self.play(ReplacementTransform(res_text3, res_text4), run_time=0.5)
+        self.wait()
+
+        self.play(res_text4.animate.set_color(BLUE_D), run_time=0.3)
+        self.wait(1)
+
 
 
 
