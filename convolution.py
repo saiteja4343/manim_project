@@ -69,16 +69,26 @@ class Conv(Scene):
         self.play(FadeIn(out_text), run_time=1)
         self.wait()
 
-        cal_text = Tex("(0*0)+(1*1)+(3*2)+(4*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        cal_text = Tex("(0*0)+(1*1)+(3*2)+(4*3)").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(FadeIn(cal_text), run_time=1)
         self.wait()
 
-        res_text = Tex("19").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        equal2 = Tex("=").next_to(cal_text, np.array((0.5, 0.0, 0.0))).scale(0.75)
+        self.play(FadeIn(equal2), run_time=1)
+        self.wait()
+
+        res_text = Tex("19").next_to(equal2, np.array((0.5, 0.0, 0.0))).scale(0.75)
         self.play(FadeIn(res_text), run_time=1)
         self.wait()
 
         self.play(res_text.animate.set_color(BLUE_D))
         self.wait(0.5)
+
+        self.play(FadeOut(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeOut(res_text), run_time=0.5)
+        self.wait()
 
         self.wait(1.5)
 
@@ -104,21 +114,33 @@ class Conv(Scene):
         self.play(ReplacementTransform(output, output_2), run_time=1)
         self.wait()
 
-        cal_text2 = Tex("(1*0)+(2*1)+(4*2)+(5*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+
+
+        cal_text2 = Tex("(1*0)+(2*1)+(4*2)+(5*3)").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(ReplacementTransform(cal_text, cal_text2), run_time=1)
         self.wait()
 
-        res_text2 = Tex("25").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
-        self.play(ReplacementTransform(res_text, res_text2), run_time=0.5)
+        res_text2 = Tex("25").next_to(equal2, np.array((1.0, 0.0, 0.0))).scale(0.75)
+
+        self.play(FadeIn(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeIn(res_text2), run_time=0.5)
         self.wait()
 
         self.play(res_text2.animate.set_color(BLUE_D), run_time=0.3)
         self.wait(1)
 
+        self.play(FadeOut(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeOut(res_text2), run_time=0.5)
+        self.wait()
+
         input_3 = MathTable(
-            [[0, 1, 2],
-             [3, 4, 5],
-             [6, 7, 8]],
+            [[2, 1, 0],
+             [5, 4, 6],
+             [8, 7, 3]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
         input_3.add_highlighted_cell((1, 1), color=BLUE_E)
         input_3.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -126,8 +148,8 @@ class Conv(Scene):
         input_3.add_highlighted_cell((2, 2), color=BLUE_E)
 
         output_3 = MathTable(
-            [[19, 25],
-             [37, 43]],
+            [[23, 26],
+             [41, 29]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output_3.add_highlighted_cell((1, 1), color=BLUE_E)
 
@@ -136,21 +158,31 @@ class Conv(Scene):
 
         self.play(ReplacementTransform(output_2, output_3), run_time=1)
         self.wait()
-        cal_text3 = Tex("(0*0)+(1*1)+(3*2)+(4*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        cal_text3 = Tex("(2*0)+(1*1)+(5*2)+(4*3)").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(ReplacementTransform(cal_text2, cal_text3), run_time=1)
         self.wait()
 
-        res_text3 = Tex("19").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
-        self.play(ReplacementTransform(res_text2, res_text3), run_time=0.5)
+        res_text3 = Tex("23").next_to(equal2, np.array((1.0, 0.0, 0.0))).scale(0.75)
+
+        self.play(FadeIn(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeIn(res_text3), run_time=0.5)
         self.wait()
 
         self.play(res_text3.animate.set_color(BLUE_D), run_time=0.3)
         self.wait(1)
 
+        self.play(FadeOut(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeOut(res_text3), run_time=0.5)
+        self.wait()
+
         input_4 = MathTable(
-            [[0, 1, 2],
-             [3, 4, 5],
-             [6, 7, 8]],
+            [[3, 2, 4],
+             [2, 1, 0],
+             [5, 3, 6]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, 0.0, 0.0)))
         input_4.add_highlighted_cell((1, 1), color=BLUE_E)
         input_4.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -158,8 +190,8 @@ class Conv(Scene):
         input_4.add_highlighted_cell((2, 2), color=BLUE_E)
 
         output_4 = MathTable(
-            [[19, 25],
-             [37, 43]],
+            [[9, 6],
+             [20, 24]],
             include_outer_lines=True).next_to(equal, np.array((0.25, 0.0, 0.0))).scale(0.5)
         output_4.add_highlighted_cell((1, 1), color=BLUE_E)
 
@@ -168,16 +200,20 @@ class Conv(Scene):
 
         self.play(ReplacementTransform(output_3, output_4), run_time=1)
         self.wait()
-        cal_text4 = Tex("(0*0)+(1*1)+(3*2)+(4*3) =").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
+        cal_text4 = Tex("(3*0)+(2*1)+(2*2)+(1*3)").next_to(kernel, np.array((0.0, -6.0, 0.0))).scale(0.75)
         self.play(ReplacementTransform(cal_text3, cal_text4), run_time=1)
         self.wait()
 
-        res_text4 = Tex("19").next_to(cal_text, np.array((1.0, 0.0, 0.0))).scale(0.75)
-        self.play(ReplacementTransform(res_text3, res_text4), run_time=0.5)
+        res_text4 = Tex("9").next_to(equal2, np.array((1.0, 0.0, 0.0))).scale(0.75)
+        self.play(FadeIn(equal2), run_time=0.5)
+        self.wait()
+
+        self.play(FadeIn(res_text4), run_time=0.5)
         self.wait()
 
         self.play(res_text4.animate.set_color(BLUE_D), run_time=0.3)
-        self.wait(1)
+        self.wait(3)
+
 
 
 

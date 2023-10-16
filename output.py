@@ -23,9 +23,9 @@ class Output(Scene):
 
 
         # New list of random numbers
-        prob_num = ["0.01", "0.02", "0.91", "0.03", "0.00", "0.02", "0.00", "0.01", "0.00", "0.00"]
-        random_numbers = [Tex(str(num)) for num in prob_num]
-        random_list = VGroup(*random_numbers).arrange(DOWN).next_to(vertical_list, np.array((3.0, 0.0, 0.0)))
+        prob_num = [" 1", "2", "91", " 3", " 0", " 2", " 0", " 1", " 0", " 0"]
+        random_numbers = [MathTex(str(num)+ "\%") for num in prob_num]
+        random_list = VGroup(*random_numbers).arrange(DOWN).next_to(vertical_list, np.array((3.0, 0.0, 0.0))).scale(0.9)
 
 
 
@@ -68,8 +68,8 @@ class Output(Scene):
         self.play(FadeIn(prob_text1))
         self.wait()
         """
-        rect = SurroundingRectangle(random_list[2], fill_opacity=1, fill_color=BLUE_E, stroke_color=BLUE)
-        text = Tex("0.97").next_to(rect, direction=ORIGIN, buff=0)
+        rect = SurroundingRectangle(random_list[2], fill_opacity=1, fill_color=ORANGE, stroke_color=WHITE)
+        text = MathTex(r"91 \%").next_to(rect, direction=ORIGIN, buff=0).scale(0.9)
         rect_with_text = VGroup(rect, text)
         self.play(FadeIn(rect_with_text))
         self.wait(5)

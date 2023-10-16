@@ -7,7 +7,7 @@ from manim_ml.neural_network import NeuralNetwork, Convolutional2DLayer, ImageLa
 
 config.frame_height = 9.0
 config.frame_width = 12.0
-y
+
 
 
 # Here we define our CNN scene
@@ -17,7 +17,7 @@ class MNISTCNN(ThreeDScene):
         numpy_image = np.asarray(image)
         layers = [
             ImageLayer(numpy_image, height=1.5),
-            Convolutional2DLayer(1, 14, filter_spacing=0.32),
+            Convolutional2DLayer(1, 14, filter_spacing=0.32, color=ORANGE),
             Convolutional2DLayer(3, 12, 3, filter_spacing=0.65),
             MaxPooling2DLayer(kernel_size=2, filter_spacing=0.45),
             Convolutional2DLayer(5, 4, 4, filter_spacing=0.18),
@@ -82,7 +82,12 @@ class MNISTCNN(ThreeDScene):
         self.play(FadeIn(out_text), run_time=1)
 
         # Make a forward pass animation
-        forward_pass = nn.make_forward_pass_animation()
+        #forward_pass = nn.make_forward_pass_animation()
         # Play animation
-        self.play(forward_pass, run_time=100)
+        #self.play(forward_pass, run_time=100)
         self.wait(2)
+        self.play(
+            *[FadeOut(mob) for mob in self.mobjects]
+        )
+
+        self.wait()

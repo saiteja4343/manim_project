@@ -4,9 +4,9 @@ from manim import *
 class MaxPool(Scene):
     def construct(self):
         input = MathTable(
-            [[0, 1, 2],
-             [3, 4, 5],
-             [6, 1, 4]],
+            [[1, 3, 7],
+             [2, 1, 4],
+             [6, 3, 5]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input.add_highlighted_cell((1,1), color=BLUE_E)
         input.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -22,7 +22,7 @@ class MaxPool(Scene):
         maxpool.add(box, text).next_to(input, np.array((2.5, 0.0, 0.0)))
 
         output = MathTable(
-            [[4, 5],
+            [[3, 7],
              [6, 5]],
             include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
         man = Tex("Max Pooling").move_to(np.array((0.0, 2.5, 0.0))).scale(1.5)
@@ -56,14 +56,14 @@ class MaxPool(Scene):
 
         self.play(FadeOut(input), run_time=0.1)
         input_g = MathTable(
-            [[0, 1, 2],
-             [3, 4, 5],
-             [6, 1, 4]],
+            [[1, 3, 7],
+             [2, 1, 4],
+             [6, 3, 5]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input_g.add_highlighted_cell((1, 1), color=BLUE_E)
-        input_g.add_highlighted_cell((1, 2), color=BLUE_E)
+        input_g.add_highlighted_cell((1, 2), color=GREEN_E)
         input_g.add_highlighted_cell((2, 1), color=BLUE_E)
-        input_g.add_highlighted_cell((2, 2), color=GREEN_E)
+        input_g.add_highlighted_cell((2, 2), color=BLUE_E)
 
         self.play(ReplacementTransform(input, input_g), run_time=1, )
         self.wait()
@@ -73,9 +73,9 @@ class MaxPool(Scene):
 
 
         input2 = MathTable(
-            [[1, 2, 0],
-             [4, 5, 1],
-             [7, 8, 2]],
+            [[5, 2, 3],
+             [6, 1, 2],
+             [5, 4, 1]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input2.add_highlighted_cell((1, 1), color=BLUE_E)
         input2.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -84,8 +84,8 @@ class MaxPool(Scene):
 
 
         output2 = MathTable(
-            [[5, 5],
-             [8, 8]],
+            [[6, 3],
+             [6, 4]],
             include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
 
         self.play(ReplacementTransform(input_g, input2), run_time=1, )
@@ -97,14 +97,14 @@ class MaxPool(Scene):
 
         self.play(FadeOut(input2), run_time=0.1)
         input2_g =MathTable(
-            [[1, 2, 0],
-             [4, 5, 1],
-             [7, 8, 2]],
+            [[5, 2, 3],
+             [6, 1, 2],
+             [5, 4, 1]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input2_g.add_highlighted_cell((1, 1), color=BLUE_E)
         input2_g.add_highlighted_cell((1, 2), color=BLUE_E)
-        input2_g.add_highlighted_cell((2, 1), color=BLUE_E)
-        input2_g.add_highlighted_cell((2, 2), color=GREEN_E)
+        input2_g.add_highlighted_cell((2, 1), color=GREEN_E)
+        input2_g.add_highlighted_cell((2, 2), color=BLUE_E)
 
         self.play(ReplacementTransform(input2, input2_g), run_time=1, )
         self.wait()
@@ -112,9 +112,9 @@ class MaxPool(Scene):
         self.wait()
 
         input3 = MathTable(
-            [[3, 5, 2],
-             [1, 4, 6],
-             [3, 6, 8]],
+            [[3, 6, 1],
+             [2, 5, 3],
+             [6, 1, 4]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input3.add_highlighted_cell((1, 1), color=BLUE_E)
         input3.add_highlighted_cell((1, 2), color=BLUE_E)
@@ -122,8 +122,8 @@ class MaxPool(Scene):
         input3.add_highlighted_cell((2, 2), color=BLUE_E)
 
         output3 = MathTable(
-            [[5, 6],
-             [6, 8]],
+            [[6, 6],
+             [6, 5]],
             include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
 
         self.play(ReplacementTransform(input2_g, input3), run_time=1, )
@@ -134,9 +134,9 @@ class MaxPool(Scene):
 
         self.play(FadeOut(input3), run_time=0.1)
         input3_g = MathTable(
-            [[3, 5, 2],
-             [1, 4, 6],
-             [3, 6, 8]],
+            [[3, 6, 1],
+             [2, 5, 3],
+             [6, 1, 4]],
             include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
         input3_g.add_highlighted_cell((1, 1), color=BLUE_E)
         input3_g.add_highlighted_cell((1, 2), color=GREEN_E)
@@ -148,7 +148,79 @@ class MaxPool(Scene):
         self.play(FadeIn(output3.add_highlighted_cell((1, 1), color=GREEN_E)), run_time=1)
         self.wait()
 
+        input4 = MathTable(
+            [[2, 5, 3],
+             [4, 2, 1],
+             [8, 3, 4]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input4.add_highlighted_cell((1, 1), color=BLUE_E)
+        input4.add_highlighted_cell((1, 2), color=BLUE_E)
+        input4.add_highlighted_cell((2, 1), color=BLUE_E)
+        input4.add_highlighted_cell((2, 2), color=BLUE_E)
 
+        output4 = MathTable(
+            [[5, 5],
+             [8, 4]],
+            include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
+
+        self.play(ReplacementTransform(input3_g, input4), run_time=1, )
+        self.wait()
+
+        self.play(ReplacementTransform(output3, output4), run_time=1, )
+        self.wait()
+
+        self.play(FadeOut(input4), run_time=0.1)
+        input4_g = MathTable(
+            [[2, 5, 3],
+             [4, 2, 1],
+             [8, 3, 4]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input4_g.add_highlighted_cell((1, 1), color=BLUE_E)
+        input4_g.add_highlighted_cell((1, 2), color=GREEN_E)
+        input4_g.add_highlighted_cell((2, 1), color=BLUE_E)
+        input4_g.add_highlighted_cell((2, 2), color=BLUE_E)
+
+        self.play(ReplacementTransform(input4, input4_g), run_time=1, )
+        self.wait()
+        self.play(FadeIn(output4.add_highlighted_cell((1, 1), color=GREEN_E)), run_time=1)
+        self.wait()
+
+        input5 = MathTable(
+            [[1, 0, 4],
+             [5, 1, 6],
+             [6, 2, 8]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input5.add_highlighted_cell((1, 1), color=BLUE_E)
+        input5.add_highlighted_cell((1, 2), color=BLUE_E)
+        input5.add_highlighted_cell((2, 1), color=BLUE_E)
+        input5.add_highlighted_cell((2, 2), color=BLUE_E)
+
+        output5 = MathTable(
+            [[5, 6],
+             [6, 8]],
+            include_outer_lines=True).next_to(maxpool, np.array((0.25, 0.0, 0.0))).scale(0.5)
+
+        self.play(ReplacementTransform(input4_g, input5), run_time=1, )
+        self.wait()
+
+        self.play(ReplacementTransform(output4, output5), run_time=1, )
+        self.wait()
+
+        self.play(FadeOut(input5), run_time=0.1)
+        input5_g = MathTable(
+            [[1, 0, 4],
+             [5, 1, 6],
+             [6, 2, 8]],
+            include_outer_lines=True).scale(0.5).move_to(np.array((-3.0, -0.5, 0.0)))
+        input5_g.add_highlighted_cell((1, 1), color=BLUE_E)
+        input5_g.add_highlighted_cell((1, 2), color=BLUE_E)
+        input5_g.add_highlighted_cell((2, 1), color=GREEN_E)
+        input5_g.add_highlighted_cell((2, 2), color=BLUE_E)
+
+        self.play(ReplacementTransform(input5, input5_g), run_time=1, )
+        self.wait()
+        self.play(FadeIn(output5.add_highlighted_cell((1, 1), color=GREEN_E)), run_time=1)
+        self.wait()
 
 
 
