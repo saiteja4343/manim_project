@@ -68,7 +68,7 @@ class Output(Scene):
         self.play(FadeIn(prob_text1))
         self.wait()
         """
-        rect = SurroundingRectangle(random_list[2], fill_opacity=1, fill_color=ORANGE, stroke_color=WHITE)
+        rect = SurroundingRectangle(random_list[2], fill_opacity=0.5, fill_color=ORANGE, stroke_color=WHITE)
         text = MathTex(r"91 \%").next_to(rect, direction=ORIGIN, buff=0).scale(0.9)
         rect_with_text = VGroup(rect, text)
         self.play(FadeIn(rect_with_text))
